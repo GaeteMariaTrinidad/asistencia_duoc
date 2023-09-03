@@ -1,0 +1,37 @@
+
+
+<ion-content [fullscreen]="true" class="fondo">
+
+  <div class="centrado ion-margin-top">
+  
+    <h3>Registro asistencia DUOC UC</h3>
+    <br>
+    <ion-img src="assets/login.svg" class="centrado"></ion-img>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_usuario">
+        
+        <div slot="label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Usuario</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input type="password" labelPlacement="floating"[(ngModel)]="mdl_contrasena">
+        <div slot="label"><ion-icon slot="icon-only" name="lock-closed-outline"></ion-icon> Contraseña</div>
+      </ion-input>
+    </ion-item>
+    <br>
+    <ion-button shape="round" (click)="navegar()" expand="block" class="ion-margin-top boton barra"> Iniciar sesión</ion-button>
+    
+    <div class="centrado">
+      <ion-button fill="clear" size="small" class="restablecer" expand="block">Restablecer contraseña</ion-button>
+    </div>  
+  </div>
+
+  <ion-alert
+  [isOpen]="isAlertOpen"
+  header="Atención"
+  message="Credenciales inválidas"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)">
+  </ion-alert>
+  
+</ion-content>
