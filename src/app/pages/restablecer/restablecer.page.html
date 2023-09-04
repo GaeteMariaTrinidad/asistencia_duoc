@@ -1,13 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>restablecer</ion-title>
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title>¿Olvidaste tu contraseña?</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">restablecer</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true"class="fondo">
+  <div class="centrado">
+  
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Contraseña nueva" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_1"></ion-input>
+    </ion-item>
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Repita Contraseña" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_2"></ion-input>
+    </ion-item>
+  
+    <ion-button (click)="contrasena_cambiada()" expand="block" class="ion-margin-top boton barra"> Restablecer </ion-button>
+  </div>
 </ion-content>

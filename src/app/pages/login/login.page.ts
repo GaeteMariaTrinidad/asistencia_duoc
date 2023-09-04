@@ -10,6 +10,8 @@ export class LoginPage implements OnInit {
 
   mdl_usuario: string = '';
   mdl_contrasena: string = '';
+  usuario : string = 'ALBERTO';
+  contrasena : string = '12345';
 
   isAlertOpen = false;
   alertButtons = ['OK'];
@@ -17,10 +19,15 @@ export class LoginPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    let parametros = this.router.getCurrentNavigation(); 
+    if(parametros?.extras.state) { 
+    
+    this.contrasena = parametros?.extras.state ['pass'];
+    }
   }
 
   navegar(){
-    if(this.mdl_usuario == 'ALBERTO' && this.mdl_contrasena == '12345'){
+    if(this.mdl_usuario == this.usuario && this.mdl_contrasena == this.contrasena){
 
       let parametros: NavigationExtras = {
         state: {
@@ -34,6 +41,16 @@ export class LoginPage implements OnInit {
       this.isAlertOpen = true;
     }
 
+  }
+
+  restablecer(){
+    let parametros: NavigationExtras = {
+      state: {
+        user: this.usuario,
+        pass: this.contrasena
+      }   
+    }
+    this.router.navigate(['restablecer'], parametros);
   }
 
   setOpen(isOpen: boolean) {
