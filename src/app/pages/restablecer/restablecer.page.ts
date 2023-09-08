@@ -11,7 +11,7 @@ export class RestablecerPage implements OnInit {
 
   mdl_usuario: string = '';
   mdl_contrasena: string = '';
-  mdl_contrasena_nueva_1: string = '1';
+  mdl_contrasena_nueva_1: string = '';
   mdl_contrasena_nueva_2: string = '';
 
   constructor(private router: Router,public alertController: AlertController) { }

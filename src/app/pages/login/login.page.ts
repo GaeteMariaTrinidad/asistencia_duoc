@@ -18,6 +18,10 @@ export class LoginPage implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
+  //Para que se refleje el cambio de contraseña en la aplicación se debe recargar manualmente (F5)
+  //hicimos todo lo que pudimos para arreglarlo pero no funciono :(
+  //al momento de escribir el código la recarga automática de la página funciona
+  //pero al hacerle un pull en Github explota y deja de funcionar (Nos pasó en dos ocaciones)
   ngOnInit() {
     let parametros = this.router.getCurrentNavigation(); 
     this.route.queryParams.subscribe(params => {
