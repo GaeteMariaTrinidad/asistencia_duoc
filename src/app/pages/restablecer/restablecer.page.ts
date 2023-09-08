@@ -11,7 +11,7 @@ export class RestablecerPage implements OnInit {
 
   mdl_usuario: string = '';
   mdl_contrasena: string = '';
-  mdl_contrasena_nueva_1: string = '';
+  mdl_contrasena_nueva_1: string = '1';
   mdl_contrasena_nueva_2: string = '';
 
   constructor(private router: Router,public alertController: AlertController) { }
@@ -25,7 +25,8 @@ export class RestablecerPage implements OnInit {
   }
 
   contrasena_cambiada(){
-    if (this.mdl_contrasena_nueva_1 == this.mdl_contrasena_nueva_2){
+    if (this.mdl_contrasena_nueva_1 == this.mdl_contrasena_nueva_2 
+       && this.mdl_contrasena_nueva_1 != '' && this.mdl_contrasena_nueva_2 != ''){
       this.presentAlert("Contraseña Cambiada");
       let parametros: NavigationExtras = {
         state:{
@@ -33,9 +34,12 @@ export class RestablecerPage implements OnInit {
         }
       }
       this.router.navigate(['login'],parametros);
+      
     } 
     
-    else{
+    else if(this.mdl_contrasena_nueva_1 == '' && this.mdl_contrasena_nueva_2 == ''){
+      this.presentAlert("Los campos están vacíos");
+    } else {
       this.presentAlert("Las contraseñas no coinciden");
     }
   }

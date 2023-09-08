@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="transparent-toolbar">
     <ion-buttons slot="start">
       <ion-back-button>
         <ion-icon name="arrow-back-outline"></ion-icon>
@@ -9,10 +9,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true"class="fondo">
-  
+
   <div class="centrado">
-    <h3>Registro asistencia DUOC UC</h3>
-    <h4 class="texto-centrado">¿Olvidaste tu contraseña?</h4>
+    <h3 class="texto-centrado texto-responsivo">Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado texto-responsivo">¿Olvidaste tu contraseña?</h4>
     <br>
     <ion-item class="fondo input ion-margin-top" lines="none">
       <ion-input label="Contraseña nueva" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_1"></ion-input>

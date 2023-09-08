@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +16,21 @@ export class LoginPage implements OnInit {
   isAlertOpen = false;
   alertButtons = ['OK'];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     let parametros = this.router.getCurrentNavigation(); 
-    if(parametros?.extras.state) { 
-    
-    this.contrasena = parametros?.extras.state ['pass'];
+    this.route.queryParams.subscribe(params => {
+      if (params) {
+        const pass = params['pass'];
+        if (pass) {
+          window.location.reload();
+        }
+      }
+    });
+
+    if(parametros?.extras.state) {   
+      this.contrasena = parametros?.extras.state['pass'];
     }
     console.log(this.contrasena)
   }

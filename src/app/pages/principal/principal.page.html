@@ -1,11 +1,11 @@
 
 <ion-content [fullscreen]="true" class="fondo">
   <div class="centrado ion-margin-top">
-    <h3>Registro asistencia DUOC UC</h3>
-    <h4 class="texto-centrado">Bienvenido: {{mdl_usuario}}</h4>
+    <h3 class="texto-centrado texto-responsivo" >Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado texto-responsivo">Bienvenido {{mdl_usuario}}</h4>
     <br>
     <ion-img src="assets/photo.svg"></ion-img>
-    <ion-button shape="round" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
+    <ion-button shape="round" (click)="configurar()" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
   
     <ion-fab slot="fixed" vertical="bottom" horizontal="start">
       <ion-fab-button>
@@ -19,7 +19,7 @@
           <ion-icon name="qr-code-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button>
-          <ion-icon (click)="configurar()" name="settings-outline"></ion-icon>
+          <ion-icon name="settings-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button>
           <ion-icon (click)="navegar()" name="log-out-outline"></ion-icon>

@@ -54,9 +54,31 @@
 }
 
 .texto-centrado {
-    text-align: center; /* Esto centra el texto horizontalmente */
+    text-align: center; 
     display: flex;
-    justify-content: center; /* Esto centra el texto verticalmente */
+    justify-content: center; 
     align-items: center;
     
+  }
+
+  .transparent-toolbar {
+    --background: transparent;
+    --border-color: transparent;
+    
+  }
+
+  .texto-responsivo {
+    font-size: 1.5em;
+  }
+  
+  @media (min-width: 768px) {
+    .texto-responsivo {
+      font-size: 2em;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .texto-responsivo {
+      font-size: 2.5em;
+    }
   }
