@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
@@ -22,6 +23,13 @@ export class PrincipalPage implements OnInit {
     }
   }
 
+  navegar() {
+    this.router.navigate(['login']);
+  }
+
+  configurar() {
+      this.router.navigate(['**']);
+  }  
 
 
 }

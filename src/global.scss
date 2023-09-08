@@ -32,7 +32,7 @@
 }
 
 .barra {
-    --background: linear-gradient(90deg, rgba(122,71,149,1) 0%, rgba(101,153,204,1) 91%);
+    --background: linear-gradient(90deg, #7a4795 0%, #6599cc 91%);
     --color: #FFFFFF;
 
 }
@@ -52,3 +52,11 @@
 .restablecer{
     --color: #ffffff;    
 }
+
+.texto-centrado {
+    text-align: center; /* Esto centra el texto horizontalmente */
+    display: flex;
+    justify-content: center; /* Esto centra el texto verticalmente */
+    align-items: center;
+    
+  }

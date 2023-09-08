@@ -1,13 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Bienvenido: {{mdl_usuario}}</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">principal</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="fondo">
+  <div class="centrado ion-margin-top">
+    <h3>Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado">Bienvenido: {{mdl_usuario}}</h4>
+    <br>
+    <ion-img src="assets/photo.svg"></ion-img>
+    <ion-button shape="round" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
+  
+    <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="end">
+        <ion-fab-button>
+          <ion-icon name="happy-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon name="qr-code-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon (click)="configurar()" name="settings-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon (click)="navegar()" name="log-out-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+  
+  
 </ion-content>

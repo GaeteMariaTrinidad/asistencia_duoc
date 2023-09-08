@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
     
     this.contrasena = parametros?.extras.state ['pass'];
     }
+    console.log(this.contrasena)
   }
 
   navegar(){

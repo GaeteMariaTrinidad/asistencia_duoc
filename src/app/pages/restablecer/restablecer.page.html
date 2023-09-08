@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
-    <ion-title>¿Olvidaste tu contraseña?</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true"class="fondo">
-  <div class="centrado">
   
+  <div class="centrado">
+    <h3>Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado">¿Olvidaste tu contraseña?</h4>
+    <br>
     <ion-item class="fondo input ion-margin-top" lines="none">
       <ion-input label="Contraseña nueva" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_1"></ion-input>
     </ion-item>
@@ -15,6 +21,6 @@
       <ion-input label="Repita Contraseña" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_2"></ion-input>
     </ion-item>
   
-    <ion-button (click)="contrasena_cambiada()" expand="block" class="ion-margin-top boton barra"> Restablecer </ion-button>
+    <ion-button (click)="contrasena_cambiada()" shape="round" expand="block" class="ion-margin-top boton barra"> Restablecer </ion-button>
   </div>
 </ion-content>
