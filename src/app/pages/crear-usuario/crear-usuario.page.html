@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="transparent-toolbar">
+    <ion-buttons slot="start">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"class="fondo">
+
+  <div class="centrado">
+    <h3 class="texto-centrado texto-responsivo">Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado texto-responsivo">Crea tu cuenta</h4>
+    <br>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_usuario"> 
+        <div slot="label" class="custom-label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Usuario</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_contrasena"> 
+        <div slot="label" class="custom-label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Contraseña</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_correo"> 
+        <div slot="label" class="custom-label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Correo electrónico</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_nombre"> 
+        <div slot="label" class="custom-label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Nombre</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="fondo ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_apellido"> 
+        <div slot="label" class="custom-label"><ion-icon slot="icon-only" name="person-outline"></ion-icon> Apellido</div>
+      </ion-input>
+    </ion-item>
+  
+    <ion-button (click)="contrasena_cambiada()" shape="round" expand="block" class="ion-margin-top boton barra"> Registrar</ion-button>
+    <ion-button (click)="volver()" shape="round" expand="block" class="ion-margin-top boton barra"> Volver </ion-button>
+  </div>
+</ion-content>
+

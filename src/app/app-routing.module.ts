@@ -23,6 +23,10 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
+  {
+    path: 'crear-usuario',
+    loadChildren: () => import('./pages/crear-usuario/crear-usuario.module').then( m => m.CrearUsuarioPageModule)
+  },
 ];
 
 @NgModule({

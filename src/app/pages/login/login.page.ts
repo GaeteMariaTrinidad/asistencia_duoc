@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
   isAlertOpen = false;
   alertButtons = ['OK'];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute, private db:DbService) {}
 
   //Para que se refleje el cambio de contraseña en la aplicación se debe recargar manualmente (F5)
   //hicimos todo lo que pudimos para arreglarlo pero no funciono :(
@@ -66,6 +67,10 @@ export class LoginPage implements OnInit {
       }   
     }
     this.router.navigate(['restablecer'], parametros);
+  }
+
+  navegarCrearUsuario(){
+    this.router.navigate(['crear-usuario'])
   }
 
   setOpen(isOpen: boolean) {
