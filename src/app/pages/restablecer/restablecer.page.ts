@@ -29,6 +29,7 @@ export class RestablecerPage implements OnInit {
        && this.mdl_contrasena_nueva_1 != '' && this.mdl_contrasena_nueva_2 != ''){
       this.presentAlert("Contraseña Cambiada");
       let parametros: NavigationExtras = {
+        replaceUrl: true,
         state:{
           pass: this.mdl_contrasena_nueva_1
         }
@@ -42,6 +43,9 @@ export class RestablecerPage implements OnInit {
     } else {
       this.presentAlert("Las contraseñas no coinciden");
     }
+  }
+  volver(){
+    this.router.navigate(['login']);
   }
 
 

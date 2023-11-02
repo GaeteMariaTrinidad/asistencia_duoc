@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   isAlertOpen = false;
   alertButtons = ['OK'];
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   //Para que se refleje el cambio de contraseña en la aplicación se debe recargar manualmente (F5)
   //hicimos todo lo que pudimos para arreglarlo pero no funciono :(
@@ -43,7 +43,9 @@ export class LoginPage implements OnInit {
     if(this.mdl_usuario == this.usuario && this.mdl_contrasena == this.contrasena){
 
       let parametros: NavigationExtras = {
+        replaceUrl: true,
         state: {
+
           user: this.mdl_usuario,
           pass: this.mdl_contrasena
         }
