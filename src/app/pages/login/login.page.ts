@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
   }
 
   navegarCrearUsuario(){
-    this.router.navigate(['crear-usuario'])
+    this.router.navigate(['crear-usuario']);
   }
 
   setOpen(isOpen: boolean) {

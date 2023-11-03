@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -13,12 +14,15 @@ export class CrearUsuarioPage implements OnInit {
   mdl_nombre: string = '';
   mdl_apellido: string = '';
 
-  constructor() { }
+  constructor(private db: DbService) { }
 
   ngOnInit() {
   }
-  contrasena_cambiada(){}
+  almacenarUsuario(){
+    this.db.almacenarUsuario(this.mdl_usuario, this.mdl_contrasena, this.mdl_correo, this.mdl_nombre, this.mdl_apellido);
+  }
 
-  volver(){}
+  volver(){
+  }
 
 }

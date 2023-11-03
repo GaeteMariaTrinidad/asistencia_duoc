@@ -22,4 +22,18 @@ export class DbService {
       })
       .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
    }
+
+   almacenarUsuario(usuario: string, contrasena: string, correo: string, nombre: string, apellido: string){
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        db.executeSql('insert into persona values(?,?,?,?,?)', [usuario, contrasena, correo, nombre, apellido])
+          .then(() => console.log('TAGD: PERSONA ALMACENADA OK'))
+          .catch(e => console.log('TAGD: ERROR AL ALMACENAR PERSONA: ' + JSON.stringify(e) ));
+      })
+      .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
+
+   }
 }
