@@ -36,4 +36,41 @@ export class DbService {
       .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
 
    }
+
+   loginUsuario(usuario: string, contrasena: string){
+    return this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        return db.executeSql('select count(usuario) as cantidad from persona where usuario = ?', [usuario, contrasena])
+          .then((data) => {
+            return data.rows.item(0).cantidad;
+
+          })
+          .catch(e => console.log('TAGD: ERROR AL REALIZAR LOGIN: ' + JSON.stringify(e) ));
+      })
+      .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
+   }
+
+   infoUsuario(usuario: string, contrasena: string){
+    return this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        return db.executeSql('select correo, nombre, apellido from persona where usuario = ?', [usuario, contrasena])
+          .then((data) => {
+            let objeto: any = {};
+            objeto.nombre= data.rows.item(0).nombre;
+            objeto.nombre= data.rows.item(0).correo;
+            objeto.nombre= data.rows.item(0).apellido;
+            return objeto;
+
+          })
+          .catch(e => console.log('TAGD: ERROR AL OBTENER INFORMACIÓN DE PERSONA: ' + JSON.stringify(e) ));
+      })
+      .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
+   }
+
 }

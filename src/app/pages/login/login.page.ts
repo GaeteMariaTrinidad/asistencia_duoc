@@ -41,9 +41,7 @@ export class LoginPage implements OnInit {
   }
 
   navegar(){
-    if(this.mdl_usuario == this.usuario && this.mdl_contrasena == this.contrasena){
-
-      let parametros: NavigationExtras = {
+    let parametros: NavigationExtras = {
         replaceUrl: true,
         state: {
 
@@ -51,13 +49,9 @@ export class LoginPage implements OnInit {
           pass: this.mdl_contrasena
         }
       }
-
       this.router.navigate(['principal'], parametros);
-    } else {
-      this.isAlertOpen = true;
     }
 
-  }
 
   restablecer(){
     let parametros: NavigationExtras = {
@@ -71,6 +65,26 @@ export class LoginPage implements OnInit {
 
   navegarCrearUsuario(){
     this.router.navigate(['crear-usuario']);
+  }
+
+  login(){
+    let parametros: NavigationExtras = {
+      replaceUrl: true,
+      state: {
+
+        user: this.mdl_usuario,
+        pass: this.mdl_contrasena
+      }
+    }
+
+    this.db.loginUsuario(this.mdl_usuario, this.mdl_contrasena)
+    .then(data => {
+      if (data == 1) {
+        this.router.navigate(['principal'],parametros);
+      } else {
+        console.log('TAGD: credenciales inválidas');
+      }
+    })
   }
 
   setOpen(isOpen: boolean) {

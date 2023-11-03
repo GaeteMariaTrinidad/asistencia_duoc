@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -14,15 +15,17 @@ export class CrearUsuarioPage implements OnInit {
   mdl_nombre: string = '';
   mdl_apellido: string = '';
 
-  constructor(private db: DbService) { }
+  constructor(private db: DbService, private router: Router) { }
 
   ngOnInit() {
   }
   almacenarUsuario(){
     this.db.almacenarUsuario(this.mdl_usuario, this.mdl_contrasena, this.mdl_correo, this.mdl_nombre, this.mdl_apellido);
+    this.router.navigate(['login']);
   }
 
   volver(){
+    this.router.navigate(['login']);
   }
 
 }
