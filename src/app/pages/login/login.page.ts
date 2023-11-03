@@ -82,7 +82,7 @@ export class LoginPage implements OnInit {
       if (data == 1) {
         this.router.navigate(['principal'],parametros);
       } else {
-        console.log('TAGD: credenciales inválidas');
+        this.db.presentAlert('credenciales inválidas');
       }
     })
   }
