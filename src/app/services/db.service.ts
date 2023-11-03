@@ -73,4 +73,18 @@ export class DbService {
       .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
    }
 
+   cambiarContrasena(usuario: string, contrasenaActual: string, contrasenaNueva: string){
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        db.executeSql('update persona set contrasena = ? where usuario = ? and contrasena = ?',[contrasenaNueva, usuario, contrasenaActual])
+          .then(() => console.log('TAGD: PERSONA MODIFICADA OK'))
+          .catch(e => console.log('TAGD: ERROR AL MODIFICAR PERSONA: ' + JSON.stringify(e) ));
+      })
+      .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
+
+   }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-restablecer',
@@ -14,7 +15,10 @@ export class RestablecerPage implements OnInit {
   mdl_contrasena_nueva_1: string = '';
   mdl_contrasena_nueva_2: string = '';
 
-  constructor(private router: Router,public alertController: AlertController) { }
+  contrasenaNueva: string = '';
+
+
+  constructor(private router: Router,public alertController: AlertController, private db:DbService) { }
 
   ngOnInit() {
     let parametros = this.router.getCurrentNavigation(); 
@@ -24,7 +28,13 @@ export class RestablecerPage implements OnInit {
     }
   }
 
+  cambiarContrasena(){
+    this.db.cambiarContrasena(this.mdl_usuario, this.mdl_contrasena, this.contrasenaNueva);
+    this.router.navigate(['login']);
+  }
+
   contrasena_cambiada(){
+
     if (this.mdl_contrasena_nueva_1 == this.mdl_contrasena_nueva_2 
        && this.mdl_contrasena_nueva_1 != '' && this.mdl_contrasena_nueva_2 != ''){
       this.presentAlert("Contraseña Cambiada");
