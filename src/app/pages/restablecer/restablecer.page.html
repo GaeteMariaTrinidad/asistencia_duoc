@@ -12,13 +12,20 @@
     <h4 class="texto-centrado texto-responsivo">¿Olvidaste tu contraseña?</h4>
     <br>
     <ion-item class="fondo input ion-margin-top" lines="none">
-      <ion-input  label="Contraseña nueva" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_1"></ion-input>
+      <ion-input  label="Contraseña Actual" type="password" labelPlacement="floating" [(ngModel)]="mdl_actual"></ion-input>
     </ion-item>
     <ion-item class="fondo input ion-margin-top" lines="none">
-      <ion-input label="Repita Contraseña" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena_nueva_2"></ion-input>
+      <ion-input label="Contraseña Nueva" type="password" labelPlacement="floating" [(ngModel)]="mdl_nueva"></ion-input>
+    </ion-item>
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Confirmar Contraseña" type="password" labelPlacement="floating" [(ngModel)]="mdl_confirmacion"></ion-input>
     </ion-item>
   
-    <ion-button (click)="contrasena_cambiada()" shape="round" expand="block" class="ion-margin-top boton barra"> Restablecer </ion-button>
+    <ion-button (click)="cambiarContrasena()" shape="round" expand="block" class="ion-margin-top boton barra"> Cambiar Contraseña </ion-button>
     <ion-button (click)="volver()" shape="round" expand="block" class="ion-margin-top boton barra"> Volver </ion-button>
+
+    <ion-item *ngIf="v_visible" color="warning" class="ion-margin-top ion-text-center">
+      <ion-label> <strong>{{ v_mensaje }} </strong> </ion-label>
+    </ion-item>
   </div>
 </ion-content>

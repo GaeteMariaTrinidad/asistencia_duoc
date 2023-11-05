@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { DbService } from 'src/app/services/db.service';
 
 
@@ -35,7 +35,7 @@ export class PrincipalPage implements OnInit {
     .then(data => {
       this.correo = data.correo;
       this.nombre = data.nombre;
-      this.correo = data.apellido;
+      this.apellido = data.apellido;
     })
   }
 
@@ -46,6 +46,17 @@ export class PrincipalPage implements OnInit {
   configurar() {
       this.router.navigate(['**']);
   }  
+
+  navegarCambiarContrasena(){
+    let parametros: NavigationExtras ={
+      state:{
+        user: this.mdl_usuario,
+        pass:this.mdl_contrasena
+      }
+      
+    }
+    this.router.navigate(['restablecer'],parametros);
+  }
 
 
 }

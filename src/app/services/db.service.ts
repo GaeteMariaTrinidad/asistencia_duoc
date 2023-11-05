@@ -68,8 +68,8 @@ export class DbService {
           .then((data) => {
             let objeto: any = {};
             objeto.nombre= data.rows.item(0).nombre;
-            objeto.nombre= data.rows.item(0).correo;
-            objeto.nombre= data.rows.item(0).apellido;
+            objeto.correo= data.rows.item(0).correo;
+            objeto.apellido= data.rows.item(0).apellido;
             return objeto;
 
           })

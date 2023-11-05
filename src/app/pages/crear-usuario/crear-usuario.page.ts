@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -25,7 +25,10 @@ export class CrearUsuarioPage implements OnInit {
   }
 
   volver(){
-    this.router.navigate(['login']);
+    let parametros: NavigationExtras ={
+      replaceUrl: true
+    }
+    this.router.navigate(['login']),parametros;
   }
 
 }
