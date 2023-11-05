@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class RestablecerPage implements OnInit {
   v_mensaje = '';
 
 
-  constructor(private router: Router, public alertController: AlertController, private db: DbService) { }
+  constructor(private api: ApiServiceService, private router: Router, public alertController: AlertController, private db: DbService) { }
 
   ngOnInit() {
     let parametros = this.router.getCurrentNavigation();
@@ -45,9 +46,15 @@ export class RestablecerPage implements OnInit {
         } else {
           if (this.mdl_nueva != this.mdl_confirmacion) {
             this.v_visible = true;
-            this.v_mensaje = 'Las contraseñas ingresadas no coinciden';
+            this.v_mensaje = 'Las campos no coinciden';
           } else {
             this.db.cambiarContrasena(this.mdl_usuario, this.mdl_contrasena, this.mdl_nueva);
+            this.api.personaModificarContrasena(this.mdl_usuario,this.mdl_nueva,this.mdl_contrasena).subscribe(()=>{
+              this.db.presentAlert("Clave modificada exitosamente");
+            },
+            error =>{
+              this.db.presentAlert("Error al modificar clave: " + JSON.stringify(error));
+            });
             let parametros: NavigationExtras = {
               replaceUrl: true
             }
