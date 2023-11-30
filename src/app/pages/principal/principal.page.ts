@@ -43,9 +43,15 @@ export class PrincipalPage implements OnInit {
     this.router.navigate(['login']);
   }
 
-  configurar() {
-      this.router.navigate(['**']);
-  }  
+  
+  
+  irPrincipal(){
+    this.router.navigate(['principal']);
+  }
+
+  irCamara(){
+    this.router.navigate(['camara']);
+  }
 
   navegarCambiarContrasena(){
     let parametros: NavigationExtras ={

@@ -5,7 +5,7 @@
     <h4 class="texto-centrado texto-responsivo">Bienvenido/a {{mdl_usuario}}</h4>
     <br>
     <ion-img src="assets/photo.svg"></ion-img>
-    <ion-button shape="round" (click)="configurar()" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
+    <ion-button shape="round" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
   
     <ion-fab slot="fixed" vertical="bottom" horizontal="start">
       <ion-fab-button>
@@ -16,10 +16,7 @@
           <ion-icon (click)="navegarCambiarContrasena()" name="create-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button>
-          <ion-icon name="qr-code-outline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button>
-          <ion-icon name="settings-outline"></ion-icon>
+          <ion-icon (click)="irCamara()" name="camera-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button>
           <ion-icon (click)="navegar()" name="log-out-outline"></ion-icon>

@@ -31,13 +31,13 @@ export class DbService {
     })
       .then((db: SQLiteObject) => {
         db.executeSql('insert into persona values(?,?,?,?,?)', [usuario, contrasena, correo, nombre, apellido])
-          .then(() => this.presentAlert('PERSONA ALMACENADA OK'))
-          .catch(e => {this.presentAlert('ERROR AL ALMACENAR PERSONA: ' + JSON.stringify(e));
+          .then(() => console.log('PERSONA ALMACENADA OK'))
+          .catch(e => {console.log('ERROR AL ALMACENAR PERSONA: ' + JSON.stringify(e));
         });
       })
       .catch(e => {
-        this.presentAlert('ERROR AL CREAR O ABRIR BD');
-        this.presentAlert('ERROR AL ALMACENAR PERSONA: ' + JSON.stringify(e));
+        console.log('ERROR AL CREAR O ABRIR BD');
+        console.log('ERROR AL ALMACENAR PERSONA: ' + JSON.stringify(e));
       });
 
    }
@@ -73,7 +73,7 @@ export class DbService {
             return objeto;
 
           })
-          .catch(e => this.presentAlert('ERROR AL OBTENER INFORMACIÓN DE PERSONA: ' + JSON.stringify(e) ));
+          .catch(e => console.log('ERROR AL OBTENER INFORMACIÓN DE PERSONA: ' + JSON.stringify(e) ));
       })
       .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
    }
@@ -85,8 +85,8 @@ export class DbService {
     })
       .then((db: SQLiteObject) => {
         db.executeSql('update persona set contrasena = ? where usuario = ? and contrasena = ?',[contrasenaNueva, usuario, contrasenaActual])
-          .then(() => this.presentAlert('PERSONA MODIFICADA OK'))
-          .catch(e => this.presentAlert('ERROR AL MODIFICAR PERSONA: ' + JSON.stringify(e) ));
+          .then(() => console.log('PERSONA MODIFICADA OK'))
+          .catch(e => console.log('ERROR AL MODIFICAR PERSONA: ' + JSON.stringify(e) ));
       })
       .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
 
