@@ -3,7 +3,7 @@
     <h3 class="texto-centrado texto-responsivo" >Registro asistencia DUOC UC</h3>
     <h4 class="texto-centrado texto-responsivo"> Esta es tu cámara ¿ deseas utilizarla ?</h4>
     <br>
-    <ion-img src="assets/photo.svg" *ngIf="!fotografia"></ion-img>
+    <ion-img src="assets/fototo.svg" *ngIf="!fotografia"></ion-img>
     <img src="{{fotografia}}" *ngIf="fotografia" style="width: 100%;max-width: 250px;">
     <ion-button shape="round" (click)="takePicture()" expand="block" class="ion-margin-top boton barra">Toma una foto</ion-button>
     <ion-button shape="round" (click)="volver()" expand="block" class="ion-margin-top boton barra">Volver</ion-button>
