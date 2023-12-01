@@ -17,7 +17,7 @@ export class ListaAsistenciaPage implements OnInit {
 
   ngOnInit() {
     this.db.fetchUsuario().subscribe(datos=>{
-      this.mdl_usuario = datos[0].nombre;
+      this.mdl_usuario = datos[0].usuario;
     })
 
     this.api.asistenciaObtener(this.mdl_usuario).subscribe(res=>{

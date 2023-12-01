@@ -35,7 +35,7 @@ export class PrincipalPage implements OnInit {
     this.db.fetchUsuario().subscribe(datos=>{
       this.correo = datos[0].correo;
       this.nombre = datos[0].nombre;
-      this.mdl_usuario = datos[0].nombre;
+      this.mdl_usuario = datos[0].usuario;
       this.apellido = datos[0].apellido;
       this.mdl_contrasena = datos[0].contrasena;
     })
