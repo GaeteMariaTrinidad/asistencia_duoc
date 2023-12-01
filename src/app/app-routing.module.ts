@@ -28,9 +28,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   }, 
   {
+    path: 'lista-asistencia',
+    loadChildren: () => import('./pages/lista-asistencia/lista-asistencia.module').then( m => m.ListaAsistenciaPageModule)
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
+  
   
 
   

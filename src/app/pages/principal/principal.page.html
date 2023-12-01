@@ -5,7 +5,7 @@
     <h4 class="texto-centrado texto-responsivo">Bienvenido/a {{mdl_usuario}} ¿Deseas escanear el QR? </h4>
     <br>
     <ion-img src="assets/qr.svg"></ion-img>
-    <ion-button shape="round" expand="block" class="ion-margin-top boton barra">Escanear</ion-button>
+    <ion-button shape="round" expand="block" class="ion-margin-top boton barra" (click)="scan()">Escanear</ion-button>
   
     <ion-fab slot="fixed" vertical="bottom" horizontal="start">
       <ion-fab-button>
@@ -19,8 +19,12 @@
           <ion-icon (click)="irCamara()" name="camera-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button>
+          <ion-icon (click)="asistencia()" name="accessibility-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
           <ion-icon (click)="navegar()" name="log-out-outline"></ion-icon>
         </ion-fab-button>
+        
       </ion-fab-list>
     </ion-fab>
   </div>

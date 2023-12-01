@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true" class="fondo">
+  <div class="centrado ion-margin-top">
+    <h3 class="texto-centrado texto-responsivo" >Registro asistencia DUOC UC</h3>
+    <h4 class="texto-centrado texto-responsivo"> Lista Asistencia {{ mdl_usuario }}</h4>
+    <br>
+    <ion-item-group *ngFor="let info of data">
+      <ion-item-divider>
+        <ion-label style="white-space: normal;word-wrap: break-word;">Asignatura: {{ info.ASIGNATURA }}</ion-label>
+      </ion-item-divider>
+    
+      <ion-item>
+        <ion-label>Código Asignatura: {{ info.CODIGO_ASIGNATURA }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Total de Clases: {{ info.TOTAL_CLASES }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Presente: {{ info.CLASES_PRESENTE }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ausente: {{ info.CLASES_AUSENTE }}</ion-label>
+      </ion-item>
+    </ion-item-group>
+    <ion-button shape="round" (click)="volver()" expand="block" class="ion-margin-top boton barra">Volver</ion-button>
+  </div>
+  
+  
+</ion-content>
