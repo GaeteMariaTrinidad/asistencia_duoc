@@ -27,11 +27,10 @@ export class RestablecerPage implements OnInit {
   constructor(private api: ApiServiceService, private router: Router, public alertController: AlertController, private db: DbService) { }
 
   ngOnInit() {
-    let parametros = this.router.getCurrentNavigation();
-    if (parametros?.extras.state) {
-      this.mdl_usuario = parametros?.extras.state['user'];
-      this.mdl_contrasena = parametros?.extras.state['pass'];
-    }
+    this.db.fetchUsuario().subscribe(datos=>{
+      this.mdl_usuario = datos[0].nombre;
+      this.mdl_contrasena = datos[0].contrasena;
+    })
     this.mdl_nueva = '';
     this.mdl_actual = '';
     this.mdl_confirmacion = '';

@@ -58,7 +58,10 @@ export class LoginPage implements OnInit {
     this.db.loginUsuario(this.mdl_usuario, this.mdl_contrasena)
     .then(data => {
       if (data == 1) {
-        this.router.navigate(['principal'],parametros);
+        this.db.buscarUsuario(this.mdl_usuario).then(res=>{
+          this.router.navigate(['principal'],parametros);
+        })
+        
       } else {
         this.db.presentAlert('credenciales inválidas');
       }

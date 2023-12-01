@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-lista-asistencia',
@@ -12,13 +13,12 @@ export class ListaAsistenciaPage implements OnInit {
   mdl_usuario: string = "";
   data: any;
 
-  constructor(private router: Router, private api: ApiServiceService) { }
+  constructor(private router: Router, private api: ApiServiceService, private db: DbService) { }
 
   ngOnInit() {
-    let parametros = this.router.getCurrentNavigation();
-    if (parametros?.extras.state) {
-      this.mdl_usuario = parametros?.extras.state['user'];
-    }
+    this.db.fetchUsuario().subscribe(datos=>{
+      this.mdl_usuario = datos[0].nombre;
+    })
 
     this.api.asistenciaObtener(this.mdl_usuario).subscribe(res=>{
       //this.api.presentAlert(JSON.stringify(res));

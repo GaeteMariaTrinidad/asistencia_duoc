@@ -31,7 +31,14 @@ export class PrincipalPage implements OnInit {
     this.mdl_contrasena = parametros?.extras.state ['pass'];
     }
 
-    this.infoUsuario();
+    //this.infoUsuario();
+    this.db.fetchUsuario().subscribe(datos=>{
+      this.correo = datos[0].correo;
+      this.nombre = datos[0].nombre;
+      this.mdl_usuario = datos[0].nombre;
+      this.apellido = datos[0].apellido;
+      this.mdl_contrasena = datos[0].contrasena;
+    })
 
     //verifica si el barcoder scanner es soportado en el dispositivo movil donde se ejecuta la app
     BarcodeScanner.isSupported().then((result) => {
@@ -63,24 +70,13 @@ export class PrincipalPage implements OnInit {
   }
 
   navegarCambiarContrasena(){
-    let parametros: NavigationExtras ={
-      state:{
-        user: this.mdl_usuario,
-        pass:this.mdl_contrasena
-      }
-      
-    }
-    this.router.navigate(['restablecer'],parametros);
+    
+    this.router.navigate(['restablecer']);
   }
 
   asistencia(){
-    let parametros2: NavigationExtras ={
-      state:{
-        user: this.mdl_usuario
-      }
-      
-    }
-    this.router.navigate(['lista-asistencia'], parametros2);
+    
+    this.router.navigate(['lista-asistencia']);
   }
 //funciones del scanner QR
 async scan(): Promise<void> {

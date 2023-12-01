@@ -1,14 +1,50 @@
 import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { AlertController } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Usuario } from './usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
 
+  UsuarioLogueado = new BehaviorSubject([]);
+
   constructor(private sqlite: SQLite,public alertController: AlertController) { 
     this.crearTablas();
+   }
+
+   fetchUsuario(): Observable<Usuario[]>{
+    return this.UsuarioLogueado.asObservable();
+   }
+
+   buscarUsuario(usuario:string){
+    return this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        return db.executeSql('select * from persona where usuario = ?', [usuario])
+          .then((data) => {
+            let items: Usuario[] = [];
+            if(data.rows.length > 0){
+              for(var i=0; i< data.rows.length; i++ ){
+                items.push({
+                  usuario : data.rows.item(i).usuario,
+                  contrasena : data.rows.item(i).contrasena,
+                  correo : data.rows.item(i).correo,
+                  nombre : data.rows.item(i).nombre,
+                  apellido : data.rows.item(i).apellido
+                })
+              }
+            }
+            this.UsuarioLogueado.next(items as any);
+
+          })
+          .catch(e => console.log('ERROR AL OBTENER INFORMACIÓN DE PERSONA: ' + JSON.stringify(e) ));
+      })
+      .catch(e => console.log('TAGD: ERROR AL CREAR O ABRIR BD'));
    }
 
    crearTablas() {
